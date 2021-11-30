@@ -21,15 +21,16 @@ router.get('/find-one', async (req,res)=>{
 
   let criteria = 
     {   bedrooms:{$gte:  parseInt(req.query.bedrooms)}, 
-        number_of_reviews:{$gte:50}, 
-        "address.country_code" : "CA" 
+        number_of_reviews:{$gte: parseInt(req.query.number_of_reviews)}, 
+        "address.country" : req.query.countries 
       }
 
   if (req.query.amenities)
     criteria ["amenities"] = {$all : req.query.amenities}
 
   let listing = await mongoQueries.findListing(criteria);
-  res.send(listing)
+  res.render("listing", {listing})
+  //res.send(listing)
 })
 
 router.get ("/find-many", (req,res)=>{
@@ -37,15 +38,28 @@ router.get ("/find-many", (req,res)=>{
   let criteria =
   {
     bedrooms: { $gte: parseInt(req.query.bedrooms) },
-    number_of_reviews: { $gte: 4 },
-    "address.country_code" : "US",
-      amenities : { $all: amenities }
+    number_of_reviews: { $gte: parseInt(req.query.number_of_reviews)},
+    //numListings : parseInt(req.query.numListings),
+    "address.country" : req.query.countries,
+      
   }
   let projection = {}
 
-  mongoQueries.findListings(res,criteria,projection,4)
+  mongoQueries.findListings(res,criteria,projection,parseInt(req.query.numListings))
 
 
+})
+
+router.get("/view-one/:id", async (req,res)=>{
+
+    let criteria = 
+    {
+      _id: req.params.id
+    }
+
+
+    let listing = await mongoQueries.findListing(criteria);
+    res.render("listing", {listing})
 })
 
 

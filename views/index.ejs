@@ -5,29 +5,83 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Airbnb Search App</h1>
+    <p>Michael Vettese</p>
 
     <h1>One listing</h1>
     <form action="/airbnb/find-one">
       <label for="bedrooms">Minimum number of bedrooms</label>
       <input type="text" id="bedrooms" name="bedrooms" value="1"><br><br>
+      <label for="reviews">Minimum number of reviews</label>
+      <input type="text" id="number_of_reviews" name="number_of_reviews" value="1"><br><br>
+      
       <h2>Amenities</h2>
           <input type="checkbox" name="amenities[]" id="wifi" value="Wifi">
           <label for="wifi">Wifi</label><br>
-          <input type="checkbox" name="amenities[]" id="pool" value="Swimming Pool">
+          <input type="checkbox" name="amenities[]" id="pool" value="Pool">
           <label for="pool">Swimming Pool</label><br>
           <input type="checkbox" name="amenities[]" id="coffee-maker" value="Coffee maker">
-          <label for="coffee-maker">Coffee maker</label>
+          <label for="coffee-maker">Coffee maker</label><br>
+          <input type="checkbox" name="amenities[]" id="Kitchen" value="Kitchen">
+          <label for="Kitchen">Kitchen</label><br>
+          <input type="checkbox" name="amenities[]" id="Hair dryer" value="Hair dryer">
+          <label for="Hair Dryer">Hair Dryer</label>
 
       <br><br>
+      
+      <h2>Country</h2>
+        <select Name="countries">  
+          <option value = "Australia"> Australia </option>
+          <option value = "Brazil"> Brazil </option>
+          <option value = "Canada"> Canada </option> 
+          <option value = "Spain"> Spain </option> 
+          <option value = "China"> China </option>  
+          <option value = "Hong Kong"> Hong Kong </option>  
+          <option value = "Portugal"> Portugal </option> 
+          <option value = "Turkey"> Turkey </option> 
+          <option value = "United States"> United States </option>
+        </select>  
+        
+        <br><br>
       <input type="submit" value="Send Query">
     </form>
 
     <h1>Many listings</h1>
     <form action="/airbnb/find-many">
       <label for="bedrooms">Minimum number of bedrooms</label>
-      <input type="text" id="bedrooms" name="bedrooms">
+      <input type="text" id="bedrooms" name="bedrooms" value = "1">
+      <br><br>
+      <label for="reviews">Minimum number of reviews</label>
+      <input type="text" id="number_of_reviews" name="number_of_reviews" value="1"><br><br>
+      <label for="numListings">Minimum number of listings</label>
+      <select Name = "numListings">
+        <option value = "5">5</option>
+        <option value = "6">6</option>
+        <option value = "7">7</option>
+        <option value = "8">8</option>
+        <option value = "9">9</option>
+        <option value = "10">10</option>
+      </select>
+      <br><br>
+
+      
+      <h2>Country</h2>
+        <select Name="countries">  
+          <option value = "Australia"> Australia </option>
+          <option value = "Brazil"> Brazil </option>
+          <option value = "Canada"> Canada </option> 
+          <option value = "Spain"> Spain </option> 
+          <option value = "China"> China </option>  
+          <option value = "Hong Kong"> Hong Kong </option>  
+          <option value = "Portugal"> Portugal </option> 
+          <option value = "Turkey"> Turkey </option> 
+          <option value = "United States"> United States </option>
+        </select>  
+        <br><br>
+        
+        
+
+
       <input type="submit" value="Send Query">
     </form>
 

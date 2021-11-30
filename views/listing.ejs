@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Airbnb Listings</h1>
+
+    <% if(listing == null )  { %>
+    
+        <h1> NO LISTING AVAILABLE</h1>
+    <% } else { %>   
+    
+        <h1>Listing Name:</h1>
+        <p><%= listing.name %></p>
+        
+        <h1> Summary:</h1>
+        <p><%= listing.summary %></p>
+        
+        <h1> Space:</h1>
+        <p><%= listing.space %></p>
+
+        <h1>Room Type:</h1>
+        <p><%= listing.room_type %></p>
+
+        <h1>Property Type:</h1>
+        <p><%= listing.property_type %></p>
+
+        <h1>House Rules:</h1>
+        <p><%= listing.house_rules %></p>
+
+        <h1>Number of Bedrooms:</h1>
+        <p><%= listing.bedrooms %></p>
+
+        <h1>Number of Reviews:</h1>
+        <p><%= listing.number_of_reviews %></p>
+        
+        <h1>Listing Picture:</h1>
+        <br>
+        <img src = <%= listing.images.picture_url %>>
+    
+    <%  } %>
+</body>
+</html>
